@@ -1,4 +1,4 @@
-import Skill from "./Skill.jsx"
+// import Skill from "./Skill.jsx"
 
 export default function CardFront(props) {
     const card = props.card;

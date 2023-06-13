@@ -9,9 +9,16 @@ import aliens from "./data.js";
 
 function App() {
 
-  const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
-  const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
-  
+  const [gameState, setGameState] = useState(false);
+
+  const [playerDeck, setPlayerDeck] = useState();
+  const [computerDeck, setComputerDeck] = useState();
+  const startGame=()=>{
+    setGameState(true);
+    setPlayerDeck(aliens.slice(0, 5));
+    setComputerDeck(aliens.slice(5, 10));
+  }
+
   // useEffect(() => {
   //   const shuffleCards = () => {
   //     const aliensCopy = [...aliens];
@@ -34,6 +41,7 @@ function App() {
   
   return (
     <>
+    <button onClickCapture={startGame}>Start game</button>
     <SubmitButton/>
     <Scoreboard/>
     <PlayerCard deck={playerDeck}/>
