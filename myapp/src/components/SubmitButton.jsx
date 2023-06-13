@@ -1,6 +1,6 @@
 function SubmitButton() {
   return (
-    <div>SubmitButton</div>
+    <button>Unleash your extraterrestrial pick!</button>
   )
 }
 

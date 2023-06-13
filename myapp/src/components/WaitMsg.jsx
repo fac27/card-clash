@@ -1,6 +1,6 @@
 function WaitMsg() {
   return (
-    <div>WaitingMsg</div>
+    <p>The computer is plotting its otherworldly move.</p>
   )
 }
 

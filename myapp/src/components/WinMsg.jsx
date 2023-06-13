@@ -1,6 +1,6 @@
 function WinMsg() {
   return (
-    <div>WinMessage</div>
+    <p>Player 1 crushes the competition!</p>
   )
 }
 
