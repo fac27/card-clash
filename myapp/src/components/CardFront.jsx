@@ -1,10 +1,10 @@
 export default function CardFront(props) {
-    const card = { props };
+    const card = props.card
     return (
         <div className={`${props.player}-card card-front column`}>
-        <h2 className="card__title card-text no-top-margin">{card}</h2>
+        <h2 className="card__title card-text no-top-margin">{card.name}</h2>
         <img className="card__img"></img>
-        {/* <div className="card__skill row space-between stack-sm">
+        <div className="card__skill row space-between stack-sm">
           <label className="card__skill-name card-text">Slimefactor
             <span className="card__skill-value cardplayer-text">{card.slimeFactor}</span>
           </label>
@@ -27,7 +27,7 @@ export default function CardFront(props) {
             <span className="card__skill-value card-text">{card.agility}</span>
           </label>
           <input type="radio" className="card__skill-button"></input>
-        </div> */}
+        </div>
       </div> 
     )
 }

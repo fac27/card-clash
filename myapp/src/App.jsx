@@ -9,26 +9,28 @@ import aliens from "./data.js";
 
 function App() {
 
-  const [playerDeck, setPlayerDeck] = useState([]);
-  const [computerDeck, setComputerDeck] = useState([]);
+  const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
+  const [computerDeck, setComputerDeck] = useState([aliens.slice(5, 10)]);
+  // useEffect(() => {
+  //   const shuffleCards = () => {
+  //     const aliensCopy = [...aliens];
+  //     const playerCards = [];
+
+  //     for (let i = 0; i < 5; i++) {
+  //       const randomIndex = Math.floor(Math.random() * aliensCopy.length);
+  //       const alien = aliensCopy.splice(randomIndex, 1)[0];
+  //       playerCards.push(alien);
+  //     }
+
+  //     const computerDeck = aliensCopy.slice();
+
+  //     setPlayerDeck(playerCards);
+  //     setComputerDeck(computerDeck);
+  //   };
+
+  //   shuffleCards();
+  // }, []);
   
-  useEffect(() => {
-    const shuffleCards = () => {
-      const playerDeck = [];
-
-      for (let i = 0; i < 5; i++) {
-        const randomIndex = Math.floor(Math.random() * aliens.length);
-        const alien = aliens.splice(randomIndex, 1)[0];
-        playerDeck.push(alien);
-      }
-
-      setPlayerDeck(playerDeck);
-      setComputerDeck(aliens.slice());
-    };
-
-    shuffleCards();
-  }, []);
-
   return (
     <>
     <SubmitButton/>
