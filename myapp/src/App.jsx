@@ -5,7 +5,21 @@ import SubmitButton from './components/SubmitButton'
 import ComputerCard from './components/ComputerCard'
 import PlayerCard from './components/PlayerCard'
 import aliens from "./data.js";
+const shuffleCards = () => {
+  const aliensCopy = [...aliens];
+  const shuffledDeck=[];
 
+
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * aliensCopy.length);
+    const alien = aliensCopy.splice(randomIndex, 1)[0];
+    shuffledDeck.push(alien);
+  }
+  
+  // const computerDeck = aliensCopy.slice();
+  return [shuffledDeck.splice(0,5), shuffledDeck];//cards
+  
+};
 
 function App() {
 
@@ -15,37 +29,27 @@ function App() {
   const [computerDeck, setComputerDeck] = useState();
   const startGame=()=>{
     setGameState(true);
-    setPlayerDeck(aliens.slice(0, 5));
-    setComputerDeck(aliens.slice(5, 10));
+    //shuffle here which will be a new array
+    const [playerCards, computerCards] = shuffleCards();
+    setPlayerDeck(playerCards);
+    setComputerDeck(computerCards);
   }
 
-  // useEffect(() => {
-  //   const shuffleCards = () => {
-  //     const aliensCopy = [...aliens];
-  //     const playerCards = [];
-
-  //     for (let i = 0; i < 5; i++) {
-  //       const randomIndex = Math.floor(Math.random() * aliensCopy.length);
-  //       const alien = aliensCopy.splice(randomIndex, 1)[0];
-  //       playerCards.push(alien);
-  //     }
-
-  //     const computerDeck = aliensCopy.slice();
-
-  //     setPlayerDeck(playerCards);
-  //     setComputerDeck(computerDeck);
-  //   };
-
-  //   shuffleCards();
-  // }, []);
-  
+  console.log(' playerDeck ', playerDeck)
+  console.log(' computerDeck ', computerDeck)
+const x=(value)=>{
+  // with the chosen value add comparison logic 
+  // call another function that removes the cards from the play
+}
   return (
     <>
     <button onClickCapture={startGame}>Start game</button>
-    <SubmitButton/>
+    { gameState && <><SubmitButton/>
     <Scoreboard/>
-    <PlayerCard deck={playerDeck}/>
-    <ComputerCard deck={computerDeck}/>
+    <PlayerCard deck = { playerDeck}/>
+    <ComputerCard deck={computerDeck} onsubmit={x}/>
+
+    </>}
     </>
   )
 }

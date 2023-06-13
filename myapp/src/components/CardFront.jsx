@@ -1,5 +1,7 @@
 // import Skill from "./Skill.jsx"
 
+import SubmitButton from "./SubmitButton";
+
 export default function CardFront(props) {
     const card = props.card;
     const keys = Object.keys(card)
@@ -7,6 +9,8 @@ export default function CardFront(props) {
     const values = Object.values(card)
     const skillValuesArr = values.slice(1)
   
+//value of input
+props.onSubmit(value)
 
     return (
         <div className={`${props.player}-card card-front column`}>
@@ -20,10 +24,11 @@ export default function CardFront(props) {
                 <label className="card__skill-name card-text">{skill}
                   <span className="card__skill-value cardplayer-text">{getValueBySkillIndex}</span>
                 </label>
-                <input type="radio" className="card__skill-button"></input>
+                <input type="radio" className="card__skill-button" ref></input>
               </div>
             );
           })}
+          <SubmitButton value = {} onClick={}/> //checked value here
         </div> 
       );
       
