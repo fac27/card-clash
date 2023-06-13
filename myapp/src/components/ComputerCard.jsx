@@ -1,34 +1,10 @@
-function ComputerCard() {
+import CardFront from "./CardFront"
+import CardBack from "./CardBack"
+
+export default function ComputerCard() {
   return (
-    <div className="computer-card card-front column">
-      <h2 className="card__title card-text no-top-margin">Gronk</h2>
-      <img className="card__img"></img>
-      <div className="card__skill row space-between stack-sm">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
-      <div className="card__skill row space-between">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
-      <div className="card__skill row space-between">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
-      <div className="card__skill row space-between">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
-    </div>
+    <>
+      <CardBack player="computer"></CardBack>
+    </>
   )
 }
-
-export default ComputerCard
