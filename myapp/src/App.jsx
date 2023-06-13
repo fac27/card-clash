@@ -10,7 +10,8 @@ import aliens from "./data.js";
 function App() {
 
   const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
-  const [computerDeck, setComputerDeck] = useState([aliens.slice(5, 10)]);
+  const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
+  
   // useEffect(() => {
   //   const shuffleCards = () => {
   //     const aliensCopy = [...aliens];
