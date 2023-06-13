@@ -1,7 +1,11 @@
-function PlayerCard() {
+import CardBack from "./CardBack"
+import CardFront from "./CardFront"
+
+
+export default function PlayerCard() {
   return (
-    <div>PlayerCard</div>
+    <>
+      <CardFront player="player"></CardFront>
+    </>
   )
 }
-
-export default PlayerCard

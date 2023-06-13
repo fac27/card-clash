@@ -1,0 +1,72 @@
+/* Utility Classes - Flex */
+
+.row {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+/* Utility Classes - Stack */
+
+.no-top-margin {
+    margin-top: 0;
+}
+
+.stack-sm {
+    margin-top: 1rem;
+}
+
+/* Cards */
+
+.player-card {
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+}
+
+.computer-card {
+    position: absolute;
+    bottom: 10%;
+    right: 25%;
+}
+
+.card-front {
+    width: 15rem;
+    height: 20rem;
+    padding: 1rem;
+    border: solid black 0.1rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-back {
+    width: 15rem;
+    height: 20rem;
+    padding: 1rem;
+    border: solid black 0.1rem;
+}
+
+.card__img {
+    width: 12rem;
+    height: 12rem;
+    border: solid black 0.1rem;
+}
+
+.card__skill {
+    width: 80%;
+}
+
+.card__skill-value {
+    margin-left: 3rem;
+}
+
+.card-back__question-mark {
+    
+}

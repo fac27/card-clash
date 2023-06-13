@@ -1,7 +1,10 @@
-function ComputerCard() {
+import CardFront from "./CardFront"
+import CardBack from "./CardBack"
+
+export default function ComputerCard() {
   return (
-    <div>ComputerCard</div>
+    <>
+      <CardBack player="computer"></CardBack>
+    </>
   )
 }
-
-export default ComputerCard
