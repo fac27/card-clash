@@ -9,24 +9,6 @@ function PlayerCard() {
         </label>
         <input type="radio" className="card__skill-button"></input>
       </div>
-      <div className="card__skill row space-between">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
-      <div className="card__skill row space-between">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
-      <div className="card__skill row space-between">
-        <label className="card__skill-name card-text">Shapeshifting
-          <span className="card__skill-value card-text">92</span>
-        </label>
-        <input type="radio" className="card__skill-button"></input>
-      </div>
     </div>
   )
 }
