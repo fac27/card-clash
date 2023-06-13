@@ -1,10 +1,11 @@
 import CardFront from "./CardFront"
-import CardBack from "./CardBack"
+// import CardBack from "./CardBack"
 
-export default function ComputerCard() {
+export default function ComputerCard(props) {
+  const topCard = props.deck[0];
   return (
     <>
-      <CardBack player="computer"></CardBack>
+      <CardFront player="computer" card={topCard}></CardFront>
     </>
   )
 }
