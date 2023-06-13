@@ -1,0 +1,32 @@
+/* Utility Classes - Flex */
+
+.row {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cards */
+
+.card-front {
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    width: 15rem;
+    height: 20rem;
+    padding: 1rem;
+    border: solid black 0.1rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card__img {
+    width: 12rem;
+    height: 8rem;
+    border: solid black 0.1rem;
+}
+
+.card__
