@@ -26,6 +26,8 @@ npm run dev
 
 And finally navigate to http://localhost:5173/ to see the site.
 
+OR view our [deployed site](https://glittering-unicorn-3f8116.netlify.app/)
+
 ## Wireframes
 
 We created a basic wireframe to show the core design and functionality of our game
