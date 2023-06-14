@@ -1,45 +1,59 @@
-import './App.css'
-import { useState, useEffect } from 'react';
-import Scoreboard from './components/Scoreboard'
-import SubmitButton from './components/SubmitButton'
-import ComputerCard from './components/ComputerCard'
-import PlayerCard from './components/PlayerCard'
+import "./App.css";
+import { useState } from "react";
+import Scoreboard from "./components/Scoreboard";
+import ComputerCard from "./components/ComputerCard";
+import PlayerCard from "./components/PlayerCard";
 import aliens from "./data.js";
 
+const shuffleCards = () => {
+  const aliensCopy = [...aliens];
+  const shuffledDeck = [];
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * aliensCopy.length);
+    const alien = aliensCopy.splice(randomIndex, 1)[0];
+    shuffledDeck.push(alien);
+  }
+  return [shuffledDeck.splice(0, 5), shuffledDeck];
+};
 
 function App() {
+  const [gameState, setGameState] = useState(false);
 
   const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
   const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
-  
-  // useEffect(() => {
-  //   const shuffleCards = () => {
-  //     const aliensCopy = [...aliens];
-  //     const playerCards = [];
+  const [selectedValue, setSelectedValue] = useState();
 
-  //     for (let i = 0; i < 5; i++) {
-  //       const randomIndex = Math.floor(Math.random() * aliensCopy.length);
-  //       const alien = aliensCopy.splice(randomIndex, 1)[0];
-  //       playerCards.push(alien);
-  //     }
+  const handleSubmission = () => {
+    const [[skill, value]] = Object.entries(selectedValue);
+    const computerValue = computerDeck[0][skill];
 
-  //     const computerDeck = aliensCopy.slice();
+    if (computerValue < value) {
+      console.log("player wins!");
+    } else {
+      console.log("computer wins");
+    }
+  };
 
-  //     setPlayerDeck(playerCards);
-  //     setComputerDeck(computerDeck);
-  //   };
+  function startGame() {
+    setGameState(true);
+    const [playerCards, computerCards] = shuffleCards();
+    setPlayerDeck(playerCards);
+    setComputerDeck(computerCards);
+  }
 
-  //   shuffleCards();
-  // }, []);
-  
   return (
     <>
-    <SubmitButton/>
-    <Scoreboard/>
-    <PlayerCard deck={playerDeck}/>
-    <ComputerCard deck={computerDeck}/>
+      <button onClick={startGame}>Start game</button>
+      <Scoreboard />
+      <PlayerCard
+        setSelectedValue={setSelectedValue}
+        value={selectedValue}
+        handleSubmission={handleSubmission}
+        deck={playerDeck}
+      />
+      <ComputerCard deck={computerDeck} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
