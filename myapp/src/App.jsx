@@ -7,7 +7,6 @@ import PlayerCard from './components/PlayerCard'
 import aliens from "./data.js";
 
 
-
 const shuffleCards = () => {
   const aliensCopy = [...aliens];
   const shuffledDeck = [];
@@ -27,6 +26,12 @@ function App() {
   const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
   const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
 
+  const [selectedValue, setSelectedValue] = useState();
+
+  const handleSubmission = () => {
+    console.log('cardFront', selectedValue)
+  } 
+
   function startGame() {
     setGameState(true);
     const [playerCards, computerCards] = shuffleCards();
@@ -35,19 +40,12 @@ function App() {
 
   }
 
-  
-  
-
-
-
-
-  
   return (
     <>
     <button onClick={startGame}>Start game</button>
     <SubmitButton/>
     <Scoreboard/>
-    <PlayerCard deck={playerDeck}/>
+    <PlayerCard setSelectedValue={setSelectedValue} value={selectedValue} handleSubmission={handleSubmission} deck={playerDeck}/>
     <ComputerCard deck={computerDeck}/>
     </>
   )
