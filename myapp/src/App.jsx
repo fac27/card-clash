@@ -78,10 +78,10 @@ function App() {
         handleSubmission={handleSubmission}
         deck={playerDeck}
       />
-      {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
       <ComputerCard deck={computerDeck} isFlipped={isFlipped}/>
-      {showWinMsg && <WinMsg winner={winner} /> }
       </div>
+      {showWinMsg && <WinMsg winner={winner} /> }
+      {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
       <Scoreboard score={score} />
     </>
     
