@@ -14,7 +14,7 @@ export default function CardFront(props) {
       <div className="card-container col">
         <div className={`${props.player}-card card-front column ${className}`}>
           <h2 className="card__title card-text no-top-margin">{card.name}</h2>
-          <img className="card__img"></img>
+          <img className="card__img" src=""></img>
           
           {skillNamesArr.map((skill, index) => {
             const getValueBySkillIndex = skillValuesArr[index];

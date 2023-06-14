@@ -1,7 +1,8 @@
-
- :root {
+#root {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
  }
 
 /* Utility Classes - Flex */
@@ -11,9 +12,7 @@
 }
 
 .wrap {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .column {
@@ -23,6 +22,10 @@
 
 .space-between {
   justify-content: space-between;
+}
+
+.center {
+    justify-content: center;
 }
 
 /* Utility Classes - Stack */
@@ -38,7 +41,10 @@
 /* Card flip */
 
 .card-container {
+    border-radius: 8px;
     border: solid black 0.1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   margin-top: 5rem;
   width: 15rem;
   height: 20rem;
@@ -62,10 +68,9 @@
 
 }
 
-.card-back {
+/* .card-back {
     background-color: red;
-
-}
+} */
 
 .flip {
     transform: rotateY(180deg);
@@ -90,3 +95,17 @@
 .card__skill-value {
   margin-left: 3rem;
 }
+
+
+/* React default styling */
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }

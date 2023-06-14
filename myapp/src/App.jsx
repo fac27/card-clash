@@ -70,19 +70,20 @@ function App() {
   return (
     <>
       <button onClick={startGame}>Start game</button>
-      <Scoreboard score={score} />
+      <div className="row center wrap">
       <PlayerCard
-      className='wrap'
         setSelectedValue={setSelectedValue}
         value={selectedValue}
         handleSubmission={handleSubmission}
         deck={playerDeck}
       />
-      <ComputerCard 
-      className='wrap'
+      <ComputerCard
       deck={computerDeck} isFlipped={isFlipped}/>
       {showWinMsg && <WinMsg winner={winner} /> }
+      </div>
+      <Scoreboard score={score} />
     </>
+    
   );
 }
 
