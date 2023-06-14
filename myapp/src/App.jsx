@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Scoreboard from "./components/Scoreboard";
 import ComputerCard from "./components/ComputerCard";
 import PlayerCard from "./components/PlayerCard";
@@ -25,18 +25,17 @@ function App() {
   const [showWinMsg, setShowWinMsg] = useState(false);
   const [winner, setWinner] = useState(true);
   const [score, setScore] = useState([0, 0]);
+  //const [round, setRound] = useState(1);
 
-  const [isFlipped, setIsFLipped] = useState(true);
+  const [isFlipped, setIsFlipped] = useState(true);
 
-  const flipCard = () => {
-    setIsFLipped(!isFlipped)
-  }
+  const flipCard = useCallback(() => {
+    setIsFlipped(prevIsFlipped => !prevIsFlipped);
+  }, []);
 
   const handleSubmission = () => {
-
+    
     flipCard()
-
-
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
 
@@ -49,6 +48,17 @@ function App() {
     }
     setShowWinMsg(true);
     setTimeout(() => setShowWinMsg(false), 2000);
+
+    setTimeout(() => flipCard(), 4000);
+
+    setTimeout(() => {
+      const updatedPlayerDeck = [...playerDeck];
+      const updatedComputerDeck = [...computerDeck];
+      updatedPlayerDeck.shift();
+      updatedComputerDeck.shift();
+      setPlayerDeck(updatedPlayerDeck);
+      setComputerDeck(updatedComputerDeck);
+    }, 5000);
   };
 
   function startGame() {
