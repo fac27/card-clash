@@ -9,11 +9,12 @@ export default function CardFront(props) {
     const values = Object.values(card)
     const skillValuesArr = values.slice(1)
 
-    const { setSelectedValue, selectedValue, handleSubmission, computerResponse, setComputerResponse } = props;
+    const { setSelectedValue, selectedValue, handleSubmission, computerResponse, setComputerResponse, className } = props;
 
     
     return (
-        <div className={`${props.player}-card card-front column`}>
+      <div className="card-container">
+        <div className={`${props.player}-card card-front column ${className}`}>
           <h2 className="card__title card-text no-top-margin">{card.name}</h2>
           <img className="card__img"></img>
           
@@ -29,11 +30,8 @@ export default function CardFront(props) {
               </div>
             );
           })}
-
-          
-
           <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>
-
+          </div>
         </div> 
 
         

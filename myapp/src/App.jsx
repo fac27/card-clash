@@ -26,7 +26,17 @@ function App() {
   const [showWinMsg, setShowWinMsg] = useState(false);
   const [winner, setWinner] = useState(true);
 
+  const [isFlipped, setIsFLipped] = useState(true);
+
+  const flipCard = () => {
+    setIsFLipped(!isFlipped)
+  }
+
   const handleSubmission = () => {
+
+    flipCard()
+
+
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
 
@@ -54,7 +64,7 @@ function App() {
         handleSubmission={handleSubmission}
         deck={playerDeck}
       />
-      <ComputerCard deck={computerDeck} />
+      <ComputerCard deck={computerDeck} isFlipped={isFlipped}/>
       {showWinMsg && <WinMsg winner={winner} /> }
     </>
   );
