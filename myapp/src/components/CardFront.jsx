@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Skill from "./Skill.jsx"
 import SubmitButton from "./SubmitButton.jsx";
 
 export default function CardFront(props) {
@@ -13,7 +11,7 @@ export default function CardFront(props) {
 
     
     return (
-      <div className="card-container">
+      <div className="card-container col">
         <div className={`${props.player}-card card-front column ${className}`}>
           <h2 className="card__title card-text no-top-margin">{card.name}</h2>
           <img className="card__img"></img>
@@ -42,21 +40,3 @@ export default function CardFront(props) {
 
 
 
-        /* <div className="card__skill row space-between">
-          <label className="card__skill-name card-text">laserPower
-            <span className="card__skill-value card-text">{card.laserPower}</span>
-          </label>
-          <input type="radio" className="card__skill-button"></input>
-        </div>
-        <div className="card__skill row space-between">
-          <label className="card__skill-name card-text">telepathy
-            <span className="card__skill-value card-text">{card.telepathy}</span>
-          </label>
-          <input type="radio" className="card__skill-button"></input>
-        </div>
-        <div className="card__skill row space-between">
-          <label className="card__skill-name card-text">Agility
-            <span className="card__skill-value card-text">{card.agility}</span>
-          </label>
-          <input type="radio" className="card__skill-button"></input>
-        </div> */

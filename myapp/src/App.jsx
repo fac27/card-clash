@@ -33,13 +33,9 @@ function App() {
   }
 
   const handleSubmission = () => {
-
     flipCard()
-
-
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
-
     if (computerValue < value) {
       setWinner(true);
       setScore(prevScore => [prevScore[0] + 1, prevScore[1]]);
@@ -63,12 +59,15 @@ function App() {
       <button onClick={startGame}>Start game</button>
       <Scoreboard score={score} />
       <PlayerCard
+      className='wrap'
         setSelectedValue={setSelectedValue}
         value={selectedValue}
         handleSubmission={handleSubmission}
         deck={playerDeck}
       />
-      <ComputerCard deck={computerDeck} isFlipped={isFlipped}/>
+      <ComputerCard 
+      className='wrap'
+      deck={computerDeck} isFlipped={isFlipped}/>
       {showWinMsg && <WinMsg winner={winner} /> }
     </>
   );
