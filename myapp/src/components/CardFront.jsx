@@ -9,7 +9,7 @@ export default function CardFront(props) {
     const values = Object.values(card)
     const skillValuesArr = values.slice(1)
 
-    const { setSelectedValue, selectedValue, handleSubmission } = props;
+    const { setSelectedValue, selectedValue, handleSubmission, computerResponse, setComputerResponse } = props;
 
     
     return (
@@ -24,7 +24,7 @@ export default function CardFront(props) {
                 <label className="card__skill-name card-text">{skill}
                   <span className="card__skill-value cardplayer-text">{getValueBySkillIndex}</span>
                 </label>
-                <input type="radio" className="card__skill-button" value={getValueBySkillIndex} onChange={(event) => setSelectedValue(event.target.value)}></input>
+                <input name="skill" type="radio" className="card__skill-button" value={getValueBySkillIndex} onChange={(event) => setSelectedValue({[skill]: event.target.value})}></input>
                
               </div>
             );

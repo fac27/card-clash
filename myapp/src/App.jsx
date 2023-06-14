@@ -25,11 +25,23 @@ function App() {
 
   const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
   const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
-
   const [selectedValue, setSelectedValue] = useState();
 
+
+  
+
   const handleSubmission = () => {
-    console.log('cardFront', selectedValue)
+
+    const [[skill, value]] = Object.entries(selectedValue);
+    const computerValue = computerDeck[0][skill]
+    
+    if (computerValue < value) {
+      console.log('player wins!')
+    }
+    else {
+      console.log('computer wins')
+    }
+
   } 
 
   function startGame() {
@@ -43,7 +55,6 @@ function App() {
   return (
     <>
     <button onClick={startGame}>Start game</button>
-    <SubmitButton/>
     <Scoreboard/>
     <PlayerCard setSelectedValue={setSelectedValue} value={selectedValue} handleSubmission={handleSubmission} deck={playerDeck}/>
     <ComputerCard deck={computerDeck}/>
