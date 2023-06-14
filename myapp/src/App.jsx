@@ -4,6 +4,7 @@ import Scoreboard from "./components/Scoreboard";
 import ComputerCard from "./components/ComputerCard";
 import PlayerCard from "./components/PlayerCard";
 import WinMsg from "./components/WinMsg";
+import SubmitButton from "./components/SubmitButton";
 import aliens from "./data.js";
 
 const shuffleCards = () => {
@@ -25,8 +26,7 @@ function App() {
   const [showWinMsg, setShowWinMsg] = useState(false);
   const [winner, setWinner] = useState(true);
   const [score, setScore] = useState([0, 0]);
-  //const [round, setRound] = useState(1);
-
+  const [canSubmit, setCanSubmit] = useState(true)
   const [isFlipped, setIsFlipped] = useState(true);
 
   const flipCard = useCallback(() => {
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   const handleSubmission = () => {
-    
+    setCanSubmit(false);
     flipCard()
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
@@ -58,6 +58,7 @@ function App() {
       updatedComputerDeck.shift();
       setPlayerDeck(updatedPlayerDeck);
       setComputerDeck(updatedComputerDeck);
+      setCanSubmit(true);
     }, 5000);
   };
 
@@ -78,6 +79,7 @@ function App() {
         handleSubmission={handleSubmission}
         deck={playerDeck}
       />
+      {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
       <ComputerCard deck={computerDeck} isFlipped={isFlipped}/>
       {showWinMsg && <WinMsg winner={winner} /> }
     </>
