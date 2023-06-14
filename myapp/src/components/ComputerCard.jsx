@@ -1,14 +1,18 @@
-import CardFront from "./CardFront"
+import CardFront from "./CardFront";
 // import CardBack from "./CardBack"
 
 export default function ComputerCard(props) {
-  const { isFlipped, handleSubmission, deck  } = props;
-  let className = ''
-  isFlipped ? className='flip' : className=''
+  const { isFlipped, handleSubmission, deck } = props;
+  let className = "";
+  isFlipped ? (className = "flip") : (className = "");
   const topCard = deck[0];
   return (
     <>
-      <CardFront player="computer" card={topCard} className={className}></CardFront>
+      <CardFront
+        player="computer"
+        card={topCard}
+        className={className}
+      ></CardFront>
     </>
-  )
+  );
 }

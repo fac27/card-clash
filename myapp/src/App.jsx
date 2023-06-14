@@ -1,9 +1,10 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Scoreboard from "./components/Scoreboard";
 import ComputerCard from "./components/ComputerCard";
 import PlayerCard from "./components/PlayerCard";
 import WinMsg from "./components/WinMsg";
+import SubmitButton from "./components/SubmitButton";
 import aliens from "./data.js";
 
 const shuffleCards = () => {
@@ -25,21 +26,18 @@ function App() {
   const [showWinMsg, setShowWinMsg] = useState(false);
   const [winner, setWinner] = useState(true);
   const [score, setScore] = useState([0, 0]);
+  const [canSubmit, setCanSubmit] = useState(true)
+  const [isFlipped, setIsFlipped] = useState(true);
 
-  const [isFlipped, setIsFLipped] = useState(true);
-
-  const flipCard = () => {
-    setIsFLipped(!isFlipped)
-  }
+  const flipCard = useCallback(() => {
+    setIsFlipped(prevIsFlipped => !prevIsFlipped);
+  }, []);
 
   const handleSubmission = () => {
-
+    setCanSubmit(false);
     flipCard()
-
-
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
-
     if (computerValue < value) {
       setWinner(true);
       setScore(prevScore => [prevScore[0] + 1, prevScore[1]]);
@@ -49,6 +47,18 @@ function App() {
     }
     setShowWinMsg(true);
     setTimeout(() => setShowWinMsg(false), 2000);
+
+    setTimeout(() => flipCard(), 4000);
+
+    setTimeout(() => {
+      const updatedPlayerDeck = [...playerDeck];
+      const updatedComputerDeck = [...computerDeck];
+      updatedPlayerDeck.shift();
+      updatedComputerDeck.shift();
+      setPlayerDeck(updatedPlayerDeck);
+      setComputerDeck(updatedComputerDeck);
+      setCanSubmit(true);
+    }, 5000);
   };
 
   function startGame() {
@@ -61,7 +71,7 @@ function App() {
   return (
     <>
       <button onClick={startGame}>Start game</button>
-      <Scoreboard score={score} />
+      <div className="row center wrap">
       <PlayerCard
         setSelectedValue={setSelectedValue}
         value={selectedValue}
@@ -69,8 +79,12 @@ function App() {
         deck={playerDeck}
       />
       <ComputerCard deck={computerDeck} isFlipped={isFlipped}/>
+      </div>
       {showWinMsg && <WinMsg winner={winner} /> }
+      {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
+      <Scoreboard score={score} />
     </>
+    
   );
 }
 

@@ -1,18 +1,12 @@
 function Scoreboard({score}) {
 
-  const tempFLexRow = {
-    display: 'flex', 
-    flexDirection: 'row'
-  }
-
   const playerScore = score[0]
   const computerScore = score[1]
 
   return (
-    <div style={tempFLexRow}>
-      <p>{playerScore}</p>
-      <p>|</p>
-      <p>{computerScore}</p>
+    <div className="row center stack-below">
+      <p className='text-space'>You: {playerScore}</p>
+      <p className='text-space'>Computer: {computerScore}</p>
     </div>
   )
 }
