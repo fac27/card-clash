@@ -7,6 +7,19 @@ import PlayerCard from './components/PlayerCard'
 import aliens from "./data.js";
 
 
+
+const shuffleCards = () => {
+  const aliensCopy = [...aliens];
+  const shuffledDeck = [];
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * aliensCopy.length);
+    const alien = aliensCopy.splice(randomIndex, 1)[0];
+    shuffledDeck.push(alien);
+  }
+  return [shuffledDeck.splice(0,5), shuffledDeck];
+};
+
+
 function App() {
 
   const [gameState, setGameState] = useState(false);
@@ -15,34 +28,19 @@ function App() {
   const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
 
   function startGame() {
-
-
-
-
+    setGameState(true);
+    const [playerCards, computerCards] = shuffleCards();
+    setPlayerDeck(playerCards);
+    setComputerDeck(computerCards);
 
   }
 
   
   
-  // useEffect(() => {
-  //   const shuffleCards = () => {
-  //     const aliensCopy = [...aliens];
-  //     const playerCards = [];
 
-  //     for (let i = 0; i < 5; i++) {
-  //       const randomIndex = Math.floor(Math.random() * aliensCopy.length);
-  //       const alien = aliensCopy.splice(randomIndex, 1)[0];
-  //       playerCards.push(alien);
-  //     }
 
-  //     const computerDeck = aliensCopy.slice();
 
-  //     setPlayerDeck(playerCards);
-  //     setComputerDeck(computerDeck);
-  //   };
 
-  //   shuffleCards();
-  // }, []);
   
   return (
     <>
