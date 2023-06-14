@@ -1,4 +1,4 @@
-# card-clash
+# 👽 card-clash 👽
 
 This app allows users to play an attribute-based game based on Top Trumps.
 
@@ -34,6 +34,7 @@ https://miro.com/app/board/uXjVM_4jUMg=/?share_link_id=120564150822
 
 ## Next steps
 
+- Alien pictures 👽
 - Add computer turns
 - Create intro screen before game start and return to this screen at game end
 - Add full Top Trumps deck functionality i.e. loser gives their card to winner's deck, game is won when all cards are held
