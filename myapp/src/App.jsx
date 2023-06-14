@@ -3,6 +3,7 @@ import { useState } from "react";
 import Scoreboard from "./components/Scoreboard";
 import ComputerCard from "./components/ComputerCard";
 import PlayerCard from "./components/PlayerCard";
+import WinMsg from "./components/WinMsg";
 import aliens from "./data.js";
 
 const shuffleCards = () => {
@@ -22,16 +23,18 @@ function App() {
   const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
   const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
   const [selectedValue, setSelectedValue] = useState();
+  const [showWinMsg, setShowWinMsg] = useState(false);
+  const [winner, setWinner] = useState(true);
 
   const handleSubmission = () => {
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
 
     if (computerValue < value) {
-      console.log("player wins!");
-    } else {
-      console.log("computer wins");
-    }
+      setWinner(true)
+    } else { setWinner(false) }
+    setShowWinMsg(true);
+    setTimeout(() => setShowWinMsg(false), 2000);
   };
 
   function startGame() {
@@ -52,6 +55,7 @@ function App() {
         deck={playerDeck}
       />
       <ComputerCard deck={computerDeck} />
+      {showWinMsg && <WinMsg winner={winner} /> }
     </>
   );
 }
