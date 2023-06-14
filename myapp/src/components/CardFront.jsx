@@ -28,7 +28,6 @@ export default function CardFront(props) {
               </div>
             );
           })}
-          <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>
           </div>
         </div> 
 
