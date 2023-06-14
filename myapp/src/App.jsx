@@ -19,12 +19,12 @@ const shuffleCards = () => {
 
 function App() {
   const [gameState, setGameState] = useState(false);
-
   const [playerDeck, setPlayerDeck] = useState(aliens.slice(0, 5));
   const [computerDeck, setComputerDeck] = useState(aliens.slice(5, 10));
   const [selectedValue, setSelectedValue] = useState();
   const [showWinMsg, setShowWinMsg] = useState(false);
   const [winner, setWinner] = useState(true);
+  const [score, setScore] = useState([0, 0]);
 
   const [isFlipped, setIsFLipped] = useState(true);
 
@@ -41,8 +41,12 @@ function App() {
     const computerValue = computerDeck[0][skill];
 
     if (computerValue < value) {
-      setWinner(true)
-    } else { setWinner(false) }
+      setWinner(true);
+      setScore(prevScore => [prevScore[0] + 1, prevScore[1]]);
+    } else { 
+      setWinner(false);
+      setScore(prevScore => [prevScore[0], prevScore[1] + 1])
+    }
     setShowWinMsg(true);
     setTimeout(() => setShowWinMsg(false), 2000);
   };
@@ -57,7 +61,7 @@ function App() {
   return (
     <>
       <button onClick={startGame}>Start game</button>
-      <Scoreboard />
+      <Scoreboard score={score} />
       <PlayerCard
         setSelectedValue={setSelectedValue}
         value={selectedValue}
@@ -70,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
