@@ -60,7 +60,6 @@ React default styling______
   margin-bottom: 5rem;
 }
 
-
 /* Text */
 
 .white {
@@ -86,7 +85,6 @@ React default styling______
 
 /*-----------------------------------*/
 
-
 /* Card flip */
 
 .card-container {
@@ -101,7 +99,6 @@ React default styling______
 }
 
 .player-card {
-
 }
 
 .computer-card {
@@ -141,7 +138,7 @@ React default styling______
 
 .card__skill-value {
   margin-left: 3rem;
-} 
+}
 
 /* React default styling */
 

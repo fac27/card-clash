@@ -28,25 +28,25 @@ function App() {
   const [showWinMsg, setShowWinMsg] = useState(false);
   const [winner, setWinner] = useState(true);
   const [score, setScore] = useState([0, 0]);
-  const [canSubmit, setCanSubmit] = useState(true)
+  const [canSubmit, setCanSubmit] = useState(true);
   const [isFlipped, setIsFlipped] = useState(true);
 
   const flipCard = useCallback(() => {
-    setIsFlipped(prevIsFlipped => !prevIsFlipped);
+    setIsFlipped((prevIsFlipped) => !prevIsFlipped);
   }, []);
 
   const handleSubmission = () => {
-    if(selectedValue === undefined) return
+    if (selectedValue === undefined) return;
     setCanSubmit(false);
-    flipCard()
+    flipCard();
     const [[skill, value]] = Object.entries(selectedValue);
     const computerValue = computerDeck[0][skill];
     if (computerValue < value) {
       setWinner(true);
-      setScore(prevScore => [prevScore[0] + 1, prevScore[1]]);
-    } else { 
+      setScore((prevScore) => [prevScore[0] + 1, prevScore[1]]);
+    } else {
       setWinner(false);
-      setScore(prevScore => [prevScore[0], prevScore[1] + 1])
+      setScore((prevScore) => [prevScore[0], prevScore[1] + 1]);
     }
     setShowWinMsg(true);
     setTimeout(() => setShowWinMsg(false), 2000);
@@ -73,24 +73,33 @@ function App() {
 
   return (
     <>
-
       <button onClick={startGame}>Start game</button>
-      <div className="row center wrap white padding-m game-window" style={{backgroundImage: `url(${background})`}}>
-        {gameState && <PlayerCard
-          setSelectedValue={setSelectedValue}
+      <div
+        className="row center wrap white padding-m game-window"
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        {gameState && (
+          <PlayerCard
+            setSelectedValue={setSelectedValue}
+            value={selectedValue}
+            handleSubmission={handleSubmission}
+            deck={playerDeck}
+          />
+        )}
+        {gameState && (
+          <ComputerCard deck={computerDeck} isFlipped={isFlipped} />
+        )}
+      </div>
+      {showWinMsg && <WinMsg winner={winner} />}
+      {canSubmit && (
+        <SubmitButton
           value={selectedValue}
           handleSubmission={handleSubmission}
-          deck={playerDeck}
-        /> }
-        {gameState && <ComputerCard deck={computerDeck} isFlipped={isFlipped}/> }
-      </div>
-      {showWinMsg && <WinMsg winner={winner} /> }
-      {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
+        />
+      )}
       <Scoreboard score={score} />
-
     </>
-    
   );
 }
 
-export default App
+export default App;

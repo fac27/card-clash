@@ -7,10 +7,6 @@ export default function CardFront(props) {
 
   const {
     setSelectedValue,
-    selectedValue,
-    handleSubmission,
-    computerResponse,
-    setComputerResponse,
     className,
   } = props;
 
