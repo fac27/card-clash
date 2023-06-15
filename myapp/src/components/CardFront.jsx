@@ -1,7 +1,7 @@
 export default function CardFront(props) {
   const card = props.card;
   const keys = Object.keys(card);
-  const skillNamesArr = keys.slice(1);
+  const skillNamesArr = keys.slice(1, 5);
   const values = Object.values(card);
   const skillValuesArr = values.slice(1);
 
