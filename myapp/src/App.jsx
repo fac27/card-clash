@@ -55,7 +55,7 @@ function App() {
       setScore((prevScore) => [prevScore[0], prevScore[1] + 1]);
     }
     setShowWinMsg(true);
-    setTimeout(() => setShowWinMsg(false), 10000);
+    setTimeout(() => setShowWinMsg(false), 6000);
 
     setTimeout(() => flipCard(), 4000);
 
@@ -67,7 +67,7 @@ function App() {
       setPlayerDeck(updatedPlayerDeck);
       setComputerDeck(updatedComputerDeck);
       setCanSubmit(true);
-    }, 5000);
+    }, 6000);
   };
 
   function startGame() {
