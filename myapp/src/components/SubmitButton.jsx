@@ -4,7 +4,7 @@ function SubmitButton(props) {
   return (
     <button value={selectedValue} onClick={handleSubmission}>
       {" "}
-      Unleash your extraterrestrial pick!
+      Unleash your pick!
     </button>
   );
 }
