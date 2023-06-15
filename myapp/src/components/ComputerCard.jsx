@@ -7,12 +7,10 @@ export default function ComputerCard(props) {
   isFlipped ? (className = "flip") : (className = "");
   const topCard = deck[0];
   return (
-    <>
       <CardFront
         player="computer"
         card={topCard}
         className={className}
-      ></CardFront>
-    </>
+      />
   );
 }
