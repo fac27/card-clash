@@ -3,8 +3,8 @@ import CardFront from "./CardFront";
 
 export default function ComputerCard(props) {
   const { isFlipped, deck } = props;
-  let className = "";
-  isFlipped ? (className = "flip") : (className = "");
+  let flipClass = "";
+  isFlipped ? (flipClass = "flip") : (flipClass = "");
   const topCard = deck[0];
-  return <CardFront player="computer" card={topCard} className={className} />;
+  return <CardFront player="computer" card={topCard} flipClass={flipClass} />;
 }

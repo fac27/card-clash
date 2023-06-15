@@ -5,11 +5,11 @@ export default function CardFront(props) {
   const values = Object.values(card);
   const skillValuesArr = values.slice(1);
 
-  const { setSelectedValue, className } = props;
+  const { setSelectedValue, flipClass } = props;
 
   return (
     <div className="card-container col padding-s">
-      <div className={`${props.player}-card card-front column ${className}`}>
+      <div className={`${props.player}-card card-front column ${flipClass}`}>
         <h2 className="card__title no-top-margin">{card.name}</h2>
         <img className="card__img" alt="👽" src={card.img} />
         {skillNamesArr.map((skill, index) => {

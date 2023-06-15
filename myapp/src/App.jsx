@@ -79,11 +79,11 @@ function App() {
   }
 
   const introStyle = {
-    padding: '2rem',
-    fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
-    fontSize: '1.5rem',
-    lineHeight: '2rem'
-  }
+    padding: "2rem",
+    fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+    fontSize: "1.5rem",
+    lineHeight: "2rem",
+  };
 
   return (
     <>
@@ -92,7 +92,14 @@ function App() {
         className="row center wrap white padding-m game-window"
         style={{ backgroundImage: `url(${background})` }}
       >
-        {!gameState && <p style={introStyle}>Welcome to Card Clash, a cosmic card game where you'll encounter extraordinary alien species and their unique abilities. Explore unknown galaxies, compare attributes, and embark on an interstellar adventure.</p>}
+        {!gameState && (
+          <p style={introStyle}>
+            Welcome to Card Clash, a cosmic card game where you'll encounter
+            extraordinary alien species and their unique abilities. Explore
+            unknown galaxies, compare attributes, and embark on an interstellar
+            adventure.
+          </p>
+        )}
         {gameState && (
           <PlayerCard
             setSelectedValue={setSelectedValue}
@@ -112,7 +119,7 @@ function App() {
           playerValue={playerValue}
         />
       )}
-      {canSubmit && (
+      {gameState && canSubmit && (
         <SubmitButton
           value={selectedValue}
           handleSubmission={handleSubmission}
