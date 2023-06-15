@@ -1,7 +1,5 @@
 function WaitMsg() {
-  return (
-    <p>The computer is plotting its otherworldly move.</p>
-  )
+  return <p>The computer is plotting its otherworldly move.</p>;
 }
 
-export default WaitMsg
+export default WaitMsg;
