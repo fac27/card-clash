@@ -37,12 +37,10 @@ function App() {
     setIsFlipped((prevIsFlipped) => !prevIsFlipped);
   }, []);
 
-
-
   const handleSubmission = () => {
     if (selectedValue === undefined) return;
     setCanSubmit(false);
-    flipCard()
+    flipCard();
 
     const [[skill, value]] = Object.entries(selectedValue);
     setPlayerValue(value);
@@ -77,6 +75,7 @@ function App() {
     const [playerCards, computerCards] = shuffleCards();
     setPlayerDeck(playerCards);
     setComputerDeck(computerCards);
+    setScore([0, 0]);
   }
 
   return (
@@ -98,8 +97,19 @@ function App() {
           <ComputerCard deck={computerDeck} isFlipped={isFlipped} />
         )}
       </div>
-      {showWinMsg && <WinMsg winner={winner} computerValue={computerValue} playerValue={playerValue}/> }
-      {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
+      {showWinMsg && (
+        <WinMsg
+          winner={winner}
+          computerValue={computerValue}
+          playerValue={playerValue}
+        />
+      )}
+      {canSubmit && (
+        <SubmitButton
+          value={selectedValue}
+          handleSubmission={handleSubmission}
+        />
+      )}
       <Scoreboard score={score} />
     </>
   );

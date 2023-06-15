@@ -5,10 +5,7 @@ export default function CardFront(props) {
   const values = Object.values(card);
   const skillValuesArr = values.slice(1);
 
-  const {
-    setSelectedValue,
-    className,
-  } = props;
+  const { setSelectedValue, className } = props;
 
   return (
     <div className="card-container col padding-s">

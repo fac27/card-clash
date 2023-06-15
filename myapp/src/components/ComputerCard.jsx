@@ -6,11 +6,5 @@ export default function ComputerCard(props) {
   let className = "";
   isFlipped ? (className = "flip") : (className = "");
   const topCard = deck[0];
-  return (
-      <CardFront
-        player="computer"
-        card={topCard}
-        className={className}
-      />
-  );
+  return <CardFront player="computer" card={topCard} className={className} />;
 }
