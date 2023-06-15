@@ -79,6 +79,10 @@ React default styling______
 .padding-m {
   padding: 3rem;
 }
+.game-window {
+  width: 50%;
+  height: 60vh;
+}
 
 /*-----------------------------------*/
 

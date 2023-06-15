@@ -74,14 +74,14 @@ function App() {
     <>
 
       <button onClick={startGame}>Start game</button>
-      <div className="row center wrap white padding-m" style={{backgroundImage: `url(${background})`}}>
-      <PlayerCard
-        setSelectedValue={setSelectedValue}
-        value={selectedValue}
-        handleSubmission={handleSubmission}
-        deck={playerDeck}
-      />
-      <ComputerCard deck={computerDeck} isFlipped={isFlipped}/>
+      <div className="row center wrap white padding-m game-window" style={{backgroundImage: `url(${background})`}}>
+        {gameState && <PlayerCard
+          setSelectedValue={setSelectedValue}
+          value={selectedValue}
+          handleSubmission={handleSubmission}
+          deck={playerDeck}
+        /> }
+        {gameState && <ComputerCard deck={computerDeck} isFlipped={isFlipped}/> }
       </div>
       {showWinMsg && <WinMsg winner={winner} /> }
       {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
