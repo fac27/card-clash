@@ -3,6 +3,8 @@ Root_______________________
 Utility Classes____________
     Flex___________________
     Stack__________________
+    Text___________________
+    Spacing________________
 Card flip__________________
 React default styling______ 
 */
@@ -46,6 +48,10 @@ React default styling______
   margin-top: 0;
 }
 
+.margin-s {
+  margin-top: 0.5rem;
+}
+
 .stack-sm {
   margin-top: 1rem;
 }
@@ -54,16 +60,33 @@ React default styling______
   margin-bottom: 5rem;
 }
 
+
+/* Text */
+
+.white {
+  color: white;
+}
+
+/* Space */
 .text-space {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+.padding-s {
+  padding: 1rem;
+}
+.padding-m {
+  padding: 3rem;
+}
+
 /*-----------------------------------*/
 
 
 /* Card flip */
 
 .card-container {
+  background-color: red;
   border-radius: 8px;
   border: solid black 0.1rem;
   margin-left: 1rem;
@@ -74,10 +97,10 @@ React default styling______
 }
 
 .player-card {
+
 }
 
 .computer-card {
-  background-color: blue;
   position: relative;
   transition: transform 1s;
 }
@@ -104,9 +127,8 @@ React default styling______
 }
 
 .card__img {
-  width: 12rem;
+  width: 10rem;
   height: 12rem;
-  border: solid black 0.1rem;
 }
 
 .card__skill {
@@ -115,7 +137,7 @@ React default styling______
 
 .card__skill-value {
   margin-left: 3rem;
-}
+} 
 
 /* React default styling */
 

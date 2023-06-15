@@ -7,6 +7,8 @@ import WinMsg from "./components/WinMsg";
 import SubmitButton from "./components/SubmitButton";
 import aliens from "./data.js";
 
+import background from "./assets/galaxy.jpg";
+
 const shuffleCards = () => {
   const aliensCopy = [...aliens];
   const shuffledDeck = [];
@@ -70,8 +72,9 @@ function App() {
 
   return (
     <>
+
       <button onClick={startGame}>Start game</button>
-      <div className="row center wrap">
+      <div className="row center wrap white padding-m" style={{backgroundImage: `url(${background})`}}>
       <PlayerCard
         setSelectedValue={setSelectedValue}
         value={selectedValue}
@@ -83,6 +86,7 @@ function App() {
       {showWinMsg && <WinMsg winner={winner} /> }
       {canSubmit && <SubmitButton value={selectedValue} handleSubmission={handleSubmission}/>}
       <Scoreboard score={score} />
+
     </>
     
   );
