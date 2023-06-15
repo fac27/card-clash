@@ -15,15 +15,17 @@ export default function CardFront(props) {
   } = props;
 
   return (
-    <div className="card-container col">
+    <div className="card-container col padding-s">
       <div className={`${props.player}-card card-front column ${className}`}>
         <h2 className="card__title no-top-margin">{card.name}</h2>
-        <img className="card__img" alt="👽"></img>
-
+        <img className="card__img" alt="👽" src={card.img} />
         {skillNamesArr.map((skill, index) => {
           const getValueBySkillIndex = skillValuesArr[index];
           return (
-            <div className="card__skill row space-between" key={index}>
+            <div
+              className="card__skill row space-between margin-xs"
+              key={index}
+            >
               <label className="card__skill-name">
                 {skill}
                 <span className="card__skill-value cardplayer-text">
@@ -33,7 +35,6 @@ export default function CardFront(props) {
               <input
                 name="skill"
                 type="radio"
-                className="card__skill-button"
                 value={getValueBySkillIndex}
                 onChange={(event) =>
                   setSelectedValue({ [skill]: event.target.value })
