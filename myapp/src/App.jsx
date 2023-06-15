@@ -36,6 +36,7 @@ function App() {
   }, []);
 
   const handleSubmission = () => {
+    if(selectedValue === undefined) return
     setCanSubmit(false);
     flipCard()
     const [[skill, value]] = Object.entries(selectedValue);
